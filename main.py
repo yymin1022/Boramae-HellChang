@@ -23,7 +23,8 @@ def render_auth():
     userDocs = userList.stream()
 
     for userDoc in userDocs:
-        if userDoc.id == userID and userDoc.collection(u"PW") == userPW:
+        userInfo = userDoc.to_dict()
+        if userDoc.id == userID and userInfo.get("PW") == userPW:
             return "USER Account OK"
 
     return render_template("auth.html")
