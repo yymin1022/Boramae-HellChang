@@ -1,10 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template, url_for
 
 app = Flask(__name__)
 
 @app.route('/')
 def render_route():
-    return render_template('route.html')
+    return redirect(url_for("render_login"))
 
 @app.route("/login")
 def render_login():
