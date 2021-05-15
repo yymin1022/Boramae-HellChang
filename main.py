@@ -10,8 +10,6 @@ def render_login():
 def render_auth():
     userID = request.form["userID"]
     userPW = request.form["userPW"]
-
-    echo(userID + "/" + userPW)
     return render_template("auth.html")
 
 @app.route("/main")
