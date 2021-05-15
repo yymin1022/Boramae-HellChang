@@ -13,6 +13,12 @@ def render_login():
 def render_auth():
     userID = request.form["userID"]
     userPW = request.form["userPW"]
+
+    serverCredentials = credentials.Certificate("/home/server/web/serviceInfo.json")
+    firebase_admin.initialize_app(serverCredentials)
+
+    db = firestore.client()
+
     return render_template("auth.html")
 
 @app.route("/main")
