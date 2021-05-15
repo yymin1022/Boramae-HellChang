@@ -19,6 +19,12 @@ def render_auth():
 
     db = firestore.client()
 
+    userList = db.collection(u'user')
+    userDocs = userList.stream()
+
+    for userDoc in userDocs:
+        print(u'{} => {}'.format(userDoc.id, userDoc.to_dict()))
+
     return render_template("auth.html")
 
 @app.route("/main")
