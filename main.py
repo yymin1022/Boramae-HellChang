@@ -10,5 +10,9 @@ def render_main():
 def render_login():
     return render_template("login.html")
 
+@app.route("/main")
+def render_main():
+    return render_template("main.html")
+
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port = 80)
