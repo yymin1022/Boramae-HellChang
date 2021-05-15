@@ -1,5 +1,8 @@
 from flask import Flask, redirect, render_template, request, url_for
 
+from firebase_admin import credentials, firestore
+import firebase_admin
+
 app = Flask(__name__)
 
 @app.route("/")
