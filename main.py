@@ -22,8 +22,6 @@ def render_auth():
     userList = db.collection(u'user')
     userDocs = userList.stream()
 
-    print("Logging in User %s and PW Input is %s"%(userID, userPW))
-
     for userDoc in userDocs:
         userInfo = userDoc.to_dict()
         if userDoc.id == userID and userInfo["PW"] == userPW:
