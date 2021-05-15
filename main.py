@@ -3,12 +3,12 @@ from flask import Flask, redirect, render_template, url_for
 app = Flask(__name__)
 
 @app.route('/')
-def render_route():
-    return redirect(url_for("render_login"))
-
-@app.route("/login")
 def render_login():
     return render_template("login.html")
+
+@app.route("/auth")
+def render_auth():
+    return render_template("auth.html")
 
 @app.route("/main")
 def render_main():
