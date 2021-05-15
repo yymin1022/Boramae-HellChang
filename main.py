@@ -25,7 +25,7 @@ def render_auth():
     for userDoc in userDocs:
         userInfo = userDoc.to_dict()
         if userDoc.id == userID and userInfo["PW"] == userPW:
-            return "USER Account OK. Group is %s"%(userInfo["Group"])
+            return "USER %s Successfully Logged in. Group is %s"%(userID, userInfo["Group"])
 
     return render_template("auth.html")
 
