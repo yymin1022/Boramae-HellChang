@@ -16,8 +16,9 @@ def render_auth():
     userID = request.form["userID"]
     userPW = request.form["userPW"]
 
-    serverCredentials = credentials.Certificate("/home/server/web/serviceInfo.json")
-    firebase_admin.initialize_app(serverCredentials)
+    if (not len(firebase_admin._apps)):
+        serverCredentials = credentials.Certificate("/home/server/web/serviceInfo.json")
+        firebase_admin.initialize_app(serverCredentials)
 
     db = firestore.client()
 
