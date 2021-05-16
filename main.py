@@ -36,7 +36,7 @@ def render_auth():
 @app.route("/main", methods=["GET", "POST"])
 def render_main():
     print(request.args.get("userData"))
-    return render_template("index.html")
+    return request.args.get("userData")
 
 if __name__ == "__main__":
     app.run(host = "0.0.0.0", port = 80)
