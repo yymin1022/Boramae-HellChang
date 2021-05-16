@@ -31,7 +31,7 @@ def render_auth():
 
     return render_template("auth.html")
 
-@app.route("/main")
+@app.route("/main", methods=["GET", "POST"])
 def render_main():
     print(request.args.get("userData"))
     return render_template("index.html")
