@@ -27,12 +27,13 @@ def render_auth():
     for userDoc in userDocs:
         userInfo = userDoc.to_dict()
         if userDoc.id == userID and userInfo["PW"] == userPW:
-            return redirect(url_for('render_main', userInfo = userID))
+            return redirect(url_for("render_main", userData = userID))
 
     return render_template("auth.html")
 
 @app.route("/main")
 def render_main():
+    print(request.args.get("userData"))
     return render_template("index.html")
 
 if __name__ == "__main__":
