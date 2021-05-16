@@ -27,7 +27,7 @@ def render_auth():
     for userDoc in userDocs:
         userInfo = userDoc.to_dict()
         if userDoc.id == userID and userInfo["PW"] == userPW:
-            return redirect(url_for("render_main", userData = userID))
+            return redirect(url_for("render_main", user = userID), code=307)
 
     return render_template("auth.html")
 
