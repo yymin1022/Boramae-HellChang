@@ -7,6 +7,7 @@ import json
 import requests
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "DEBUG"
 
 @app.route("/")
 def render_login():
