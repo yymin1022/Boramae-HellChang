@@ -26,12 +26,17 @@ def render_auth():
     userList = db.collection(u'user')
     userDocs = userList.stream()
 
+    flash(u'등록되지 않은 사용자입니다.', 'error')
+
     for userDoc in userDocs:
         userInfo = userDoc.to_dict()
-        if userDoc.id == userID and userInfo["PW"] == userPW:
-            return redirect(url_for("render_main", userData = userID))
+        if userDoc.id == userID:
+            if userInfo["PW"] == userPW:
+                return redirect(url_for("render_main", userData = userID))
+            else:
+                flash(u'비밀번호가 올바르지 않습니다.', 'error')
 
-    return render_template("auth.html")
+    return render_template("login.html")
 
 @app.route("/main", methods=["GET", "POST"])
 def render_main():
